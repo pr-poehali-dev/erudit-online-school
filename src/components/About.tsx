@@ -1,6 +1,10 @@
 import Icon from "@/components/ui/icon";
 
-const About = () => {
+interface AboutProps {
+  id?: string;
+}
+
+const About = ({ id }: AboutProps) => {
   const features = [
     {
       icon: "Lightbulb",
@@ -27,7 +31,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section id={id} className="py-20 px-4 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">

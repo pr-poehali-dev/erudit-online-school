@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { scrollToSection } from "@/lib/scroll-utils";
 
 const Hero = () => {
   return (
@@ -19,6 +20,7 @@ const Hero = () => {
           <Button
             size="lg"
             className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-4 text-lg"
+            onClick={() => scrollToSection("contact")}
           >
             <Icon name="Play" className="mr-2" size={20} />
             Начать обучение
@@ -27,9 +29,10 @@ const Hero = () => {
             size="lg"
             variant="outline"
             className="border-white text-white hover:bg-white hover:text-purple-700 px-8 py-4 text-lg"
+            onClick={() => scrollToSection("about")}
           >
             <Icon name="BookOpen" className="mr-2" size={20} />
-            Попробовать бесплатно
+            Узнать больше
           </Button>
         </div>
 

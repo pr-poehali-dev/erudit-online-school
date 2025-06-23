@@ -2,7 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 
-const Contact = () => {
+interface ContactProps {
+  id?: string;
+}
+
+const Contact = ({ id }: ContactProps) => {
+  const handleConsultation = () => {
+    alert("Спасибо за интерес! Мы свяжемся с вами в ближайшее время.");
+  };
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/74951234567", "_blank");
+  };
   const contactInfo = [
     {
       icon: "Phone",
@@ -25,7 +36,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-900 text-white">
+    <section id={id} className="py-20 px-4 bg-gray-900 text-white">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -52,6 +63,7 @@ const Contact = () => {
                 <Button
                   size="lg"
                   className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
+                  onClick={handleConsultation}
                 >
                   <Icon name="Calendar" className="mr-2" size={20} />
                   Записаться бесплатно
@@ -60,6 +72,7 @@ const Contact = () => {
                   size="lg"
                   variant="outline"
                   className="w-full border-white text-white hover:bg-white hover:text-gray-900"
+                  onClick={handleWhatsApp}
                 >
                   <Icon name="MessageCircle" className="mr-2" size={20} />
                   Написать в WhatsApp

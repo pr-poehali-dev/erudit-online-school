@@ -7,8 +7,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { scrollToSection } from "@/lib/scroll-utils";
 
-const Courses = () => {
+interface CoursesProps {
+  id?: string;
+}
+
+const Courses = ({ id }: CoursesProps) => {
   const courses = [
     {
       title: "Программирование с нуля",
@@ -44,7 +49,7 @@ const Courses = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section id={id} className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -97,7 +102,10 @@ const Courses = () => {
               </CardContent>
 
               <CardFooter>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                <Button
+                  className="w-full bg-purple-600 hover:bg-purple-700"
+                  onClick={() => scrollToSection("contact")}
+                >
                   Записаться на курс
                 </Button>
               </CardFooter>
@@ -110,6 +118,7 @@ const Courses = () => {
             variant="outline"
             size="lg"
             className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
+            onClick={() => scrollToSection("courses")}
           >
             <Icon name="Grid3X3" className="mr-2" size={20} />
             Посмотреть все курсы
